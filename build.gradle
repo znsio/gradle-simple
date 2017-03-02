@@ -6,6 +6,10 @@ group = 'com.github.jitpack'
 sourceCompatibility = 1.8 // java 8
 targetCompatibility = 1.8
 
+println()
+println("Version from Env: ${System.env.VERSION}")
+println()
+
 repositories {
   mavenCentral()
 }
