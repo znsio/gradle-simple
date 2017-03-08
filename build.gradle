@@ -8,6 +8,7 @@ targetCompatibility = 1.8
 
 println()
 println("Version from Env: ${System.env.VERSION}")
+println("Is JitPack?: ${System.env.JITPACK}")
 println()
 
 repositories {
