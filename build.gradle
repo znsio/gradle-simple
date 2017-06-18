@@ -3,9 +3,6 @@ apply plugin: 'maven'
 
 group = 'com.github.jitpack-io'
 
-sourceCompatibility = 1.8 // java 8
-targetCompatibility = 1.8
-
 repositories {
   mavenCentral()
 }
