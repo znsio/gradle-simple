@@ -28,6 +28,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }
 
 shadowJar {
+    archiveName = "$baseName.$extension"
 }
 
 artifacts {
