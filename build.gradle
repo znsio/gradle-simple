@@ -1,5 +1,10 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "2.0.2"
+}
+
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 group = 'com.github.jitpack-io'
 
@@ -22,9 +27,13 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
+shadowJar {
+}
+
 artifacts {
     archives sourcesJar
     archives javadocJar
+    archives shadowJar
 }
 
 // To specify a license in the pom:
