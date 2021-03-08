@@ -39,6 +39,14 @@ artifacts {
     archives shadowJar
 }
 
+version '0.0.01'
+
+shadowJar {
+    archiveBaseName.set("$project.name")
+    archiveClassifier.set('')
+    archiveVersion.set("$version")
+}
+
 // To specify a license in the pom:
 install {
     repositories.mavenInstaller {
