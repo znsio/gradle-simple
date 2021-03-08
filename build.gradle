@@ -1,15 +1,26 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "6.1.0"
+}
+
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 group = 'com.github.jitpack-io'
 
 repositories {
-  mavenCentral()
+    mavenCentral()
+    maven { url "http://repo.bodar.com" }
+    maven { url 'https://jitpack.io' }
+    maven { url "https://dl.bintray.com/epam/reportportal" }
+    maven { url 'https://jitpack.io' }
+    jcenter()
 }
 
 dependencies {
-  compile 'com.google.guava:guava:18.0'
-  testCompile 'junit:junit:4.12'
+    compile 'com.google.guava:guava:18.0'
+    testCompile 'junit:junit:4.12'
+    compile "com.mashape.unirest:unirest-java:+"
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
@@ -25,19 +36,20 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives sourcesJar
     archives javadocJar
+    archives shadowJar
 }
 
 // To specify a license in the pom:
 install {
-  repositories.mavenInstaller {
-    pom.project {
-      licenses {
-        license {
-          name 'The Apache Software License, Version 2.0'
-          url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-          distribution 'repo'
+    repositories.mavenInstaller {
+        pom.project {
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
         }
-      }
     }
-  }
 }
